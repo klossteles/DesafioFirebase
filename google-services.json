@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "917366375127",
+    "project_id": "desafiofirebase-faa6a",
+    "storage_bucket": "desafiofirebase-faa6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917366375127:android:eec62ba3c05ee63ec5e692",
+        "android_client_info": {
+          "package_name": "com.klossteles.desafiofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917366375127-f6de9bp68ta9brs1r75otdgm7pm4sv3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcXmBFIXtDliaCH-IrHamQPhIKhoCNaYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917366375127-f6de9bp68ta9brs1r75otdgm7pm4sv3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
