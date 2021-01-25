@@ -4,35 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".login.view.LoginFragment"
+    tools:context=".register.view.RegisterFragment"
     android:background="@drawable/wallpaper">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="@dimen/dimen_10dp"
         app:cardCornerRadius="@dimen/dimen_10dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtEmailLogin"
+                android:id="@+id/txtNameRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
+                android:hint="@string/name"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="@dimen/dimen_20dp"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtEmailLogin"
+                    android:id="@+id/edtNameRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -40,58 +41,69 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtPasswordLogin"
+                android:id="@+id/txtEmailRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
-                app:layout_constraintTop_toBottomOf="@id/txtEmailLogin"
+                android:hint="@string/email"
+                app:layout_constraintTop_toBottomOf="@id/txtNameRegister"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="@dimen/dimen_20dp"
                 >
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPasswordLogin"
+                    android:id="@+id/edtEmailRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                app:layout_constraintTop_toBottomOf="@id/txtEmailRegister"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/dimen_20dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPasswordRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <CheckBox
-                android:id="@+id/checkRemember"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtRepeatPasswordRegister"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/txtPasswordLogin"
+                android:hint="@string/repeat_password"
+                app:layout_constraintTop_toBottomOf="@id/txtPasswordRegister"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginHorizontal="@dimen/dimen_20dp"
-                android:layout_marginTop="@dimen/dimen_10dp"
-                android:backgroundTint="@color/colorRed"
-                android:text="@string/remember"/>
+                android:layout_margin="@dimen/dimen_20dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtRepeatPasswordRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/checkRemember"
-                android:layout_marginTop="@dimen/dimen_20dp"
-                android:layout_marginHorizontal="@dimen/dimen_20dp"
-                android:text="@string/login"
-                android:backgroundTint="@color/colorRed"
-                />
-
-            <Button
-                android:id="@+id/btnCreateAccount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@id/txtRepeatPasswordRegister"
                 android:layout_margin="@dimen/dimen_20dp"
                 android:text="@string/create_account"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:textColor="@color/colorBlue"
+                android:backgroundTint="@color/colorRed"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

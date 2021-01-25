@@ -8,4 +8,20 @@
     <string name="remember">Remember</string>
     <string name="login">Login</string>
     <string name="create_account">Create Account</string>
+    <string name="name">Name</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="insert_name">Insert name</string>
+    <string name="insert_email">Insert email</string>
+    <string name="password_cannot_be_null">Password cannot be null</string>
+    <string name="must_contain_at_least_6_characters">Must contain at least 6 characters</string>
+    <string name="must_be_the_same_as_password">Must be the same password</string>
+    <string name="validate_your_email">Validate your email</string>
+    <string name="insert_password">Insert password</string>
+    <string name="an_error_has_occurred_check_email_and_password">An error has occurred check emai and password]</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>

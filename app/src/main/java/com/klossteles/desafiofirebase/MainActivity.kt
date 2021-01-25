@@ -8,4 +8,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+    companion object {
+        const val LOGIN = "Login"
+        const val EMAIL = "Email"
+        const val PASSWORD = "Password"
+    }
 }
