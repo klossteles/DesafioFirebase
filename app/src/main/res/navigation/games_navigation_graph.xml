@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/games_navigation_graph"
+    app:startDestination="@id/gamesListFragment">
+
+    <fragment
+        android:id="@+id/gamesListFragment"
+        android:name="com.klossteles.desafiofirebase.games.view.GamesListFragment"
+        android:label="fragment_games_list"
+        tools:layout="@layout/fragment_games_list" >
+        <action
+            android:id="@+id/action_gamesListFragment_to_gameRegisterFragment"
+            app:destination="@id/gameRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameRegisterFragment"
+        android:name="com.klossteles.desafiofirebase.games.view.GameRegisterFragment"
+        android:label="fragment_game_register"
+        tools:layout="@layout/fragment_game_register" >
+        <action
+            android:id="@+id/action_gameRegisterFragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:popUpTo="@id/gamesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
