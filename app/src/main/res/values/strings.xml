@@ -30,4 +30,8 @@
     <string name="created_at">Created at</string>
     <string name="save_game">Save game</string>
     <string name="game_photo">Game photo</string>
+    <string name="name_cannot_be_empty">Name cannot be empty</string>
+    <string name="created_at_cannot_be_empty">Created at cannot be empty</string>
+    <string name="description_cannot_be_empty">Description cannot be empty</string>
+    <string name="search">Search</string>
 </resources>

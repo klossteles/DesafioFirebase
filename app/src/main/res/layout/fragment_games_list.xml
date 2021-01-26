@@ -18,10 +18,11 @@
         android:background="@drawable/bg_white_rounded"
         android:clickable="true"
         android:focusable="true"
+        android:queryHint="@string/search"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listSeries"
+        android:id="@+id/rvGamesList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/dimen_10dp"

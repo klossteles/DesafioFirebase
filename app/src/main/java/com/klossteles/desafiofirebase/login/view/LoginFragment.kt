@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +43,9 @@ class LoginFragment : Fragment() {
 
         onCreateAccount(navController)
         onLogIn()
+        checkEmailChanged()
+        checkPasswordChanged()
+
     }
 
     private fun onCreateAccount(navController: NavController) {
@@ -93,4 +98,31 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun checkEmailChanged() {
+        _view.findViewById<TextInputEditText>(R.id.edtEmailLogin)
+            .addTextChangedListener(object :
+                TextWatcher {
+                override fun afterTextChanged(s: Editable?) { }
+
+                override fun beforeTextChanged( s: CharSequence?, start: Int, count: Int, after: Int ) { }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    _view.findViewById<TextInputLayout>(R.id.txtEmailLogin).error = ""
+                }
+            })
+    }
+
+    private fun checkPasswordChanged() {
+        _view.findViewById<TextInputEditText>(R.id.edtEmailLogin)
+            .addTextChangedListener(object :
+                TextWatcher {
+                override fun afterTextChanged(s: Editable?) { }
+
+                override fun beforeTextChanged( s: CharSequence?, start: Int, count: Int, after: Int ) { }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    _view.findViewById<TextInputLayout>(R.id.txtEmailLogin).error = ""
+                }
+            })
+    }
 }
