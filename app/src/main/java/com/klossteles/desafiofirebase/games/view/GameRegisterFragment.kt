@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -23,6 +24,11 @@ class GameRegisterFragment : Fragment() {
     private lateinit var _view: View
     private lateinit var _auth: FirebaseAuth
     private lateinit var _viewModel: GameViewModel
+    private lateinit var _description: String
+    private lateinit var _name: String
+    private lateinit var _createdAt: String
+    private lateinit var _id: String
+    private lateinit var _imgUrl: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,6 +53,7 @@ class GameRegisterFragment : Fragment() {
         checkCreatedAtChanged()
         checkDescriptionChanged()
         checkNameChanged()
+        loadValues()
     }
 
     private fun onSaveGame(navController: NavController) {
@@ -129,6 +136,18 @@ class GameRegisterFragment : Fragment() {
                     _view.findViewById<TextInputLayout>(R.id.txtDescriptionRegister).error = ""
                 }
             })
+    }
+
+    private fun loadValues() {
+        _description = arguments?.getString(GamesListFragment.DESCRIPTION).toString()
+        _name = arguments?.getString(GamesListFragment.NAME).toString()
+        _createdAt = arguments?.getInt(GamesListFragment.CREATED_AT).toString()
+        _id = arguments?.getString(GamesListFragment.ID).toString()
+        _imgUrl = arguments?.getString(GamesListFragment.IMG_URL).toString()
+
+        _view.findViewById<TextInputEditText>(R.id.edtGameNameRegister).setText(_name)
+        _view.findViewById<TextInputEditText>(R.id.edtCreateAtRegister).setText(_createdAt)
+        _view.findViewById<TextInputEditText>(R.id.edtDescriptionRegister).setText(_description)
     }
 
     companion object {
