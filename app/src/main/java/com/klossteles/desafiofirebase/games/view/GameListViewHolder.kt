@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputLayout
 import com.klossteles.desafiofirebase.R
 import com.klossteles.desafiofirebase.games.model.GameModel
 import com.squareup.picasso.Picasso
@@ -16,6 +15,7 @@ class GameListViewHolder(_view: View): RecyclerView.ViewHolder(_view) {
 
     fun bind(gameModel: GameModel) {
         gameYear.text = gameModel.createdAt.toString()
-//        Picasso.get().load(gameModel).into(image)
+        title.text = gameModel.name
+//        Picasso.get().load(gameModel.imgUrl).into(image)
     }
 }

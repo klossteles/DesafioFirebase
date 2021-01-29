@@ -3,19 +3,20 @@ package com.klossteles.desafiofirebase.games.view
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.klossteles.desafiofirebase.R
-import com.klossteles.desafiofirebase.games.model.GameModel
+import com.klossteles.desafiofirebase.games.repository.GamesRepository
 import com.klossteles.desafiofirebase.games.viewModel.GameViewModel
 
 class GameRegisterFragment : Fragment() {
@@ -35,17 +36,20 @@ class GameRegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _view = view
         _auth = FirebaseAuth.getInstance()
+        val navController = findNavController()
+        val user = _auth.currentUser ?: return
+        val database = FirebaseDatabase.getInstance().getReference().child("games").child("users").child(user.uid).child("games")
 
-        _viewModel = ViewModelProvider(this, GameViewModel.GameViewModelFactory(FirebaseDatabase.getInstance())
+        _viewModel = ViewModelProvider(this, GameViewModel.GameViewModelFactory(GamesRepository(database))
         ).get(GameViewModel::class.java)
 
-        onSaveGame()
+        onSaveGame(navController)
         checkCreatedAtChanged()
         checkDescriptionChanged()
         checkNameChanged()
     }
 
-    private fun onSaveGame() {
+    private fun onSaveGame(navController: NavController) {
         _view.findViewById<Button>(R.id.btnSaveGame).setOnClickListener {
             val name =
                 _view.findViewById<TextInputEditText>(R.id.edtGameNameRegister)?.text.toString()
@@ -79,7 +83,8 @@ class GameRegisterFragment : Fragment() {
             val user = _auth.currentUser
 
             if (user != null) {
-                _viewModel.saveGame(name, description, createdAt.toInt(), user)
+                _viewModel.saveGame(name, description, createdAt.toInt())
+                navController.navigateUp()
             }
         }
     }
@@ -124,5 +129,9 @@ class GameRegisterFragment : Fragment() {
                     _view.findViewById<TextInputLayout>(R.id.txtDescriptionRegister).error = ""
                 }
             })
+    }
+
+    companion object {
+        const val TAG = "GameRegisterFragment"
     }
 }

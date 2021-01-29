@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">DesafioFirebase</string>
     <string name="splash_image">Splash image</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -19,10 +18,6 @@
     <string name="insert_password">Insert password</string>
     <string name="an_error_has_occurred_check_email_and_password">An error has occurred check emai and password]</string>
     <string name="title_activity_login">LoginActivity</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
     <string name="hello_world">Hello Square World!</string>
     <string name="game_image">Game image</string>
     <string name="new_game_button">New game button</string>
@@ -34,4 +29,7 @@
     <string name="created_at_cannot_be_empty">Created at cannot be empty</string>
     <string name="description_cannot_be_empty">Description cannot be empty</string>
     <string name="search">Search</string>
+    <string name="details_image">Details image</string>
+    <string name="edit_game">Edit game app:srcCompat=</string>
+    <string name="back">Back</string>
 </resources>

@@ -84,19 +84,23 @@ class RegisterFragment : Fragment() {
         val repeatPassword =
             _view.findViewById<TextInputEditText>(R.id.edtRepeatPasswordRegister)?.text.toString()
 
-        if (repeatPassword.isEmpty()) {
-            _view.findViewById<TextInputLayout>(R.id.txtRepeatPasswordRegister).error =
-                getString(R.string.password_cannot_be_null)
-            isOk = false
-        } else if (repeatPassword.length < 6) {
-            _view.findViewById<TextInputLayout>(R.id.txtRepeatPasswordRegister).error =
-                getString(R.string.must_contain_at_least_6_characters)
-            isOk = false
-        } else if (repeatPassword != password) {
-            _view.findViewById<TextInputLayout>(R.id.txtRepeatPasswordRegister).error = getString(
-                R.string.must_be_the_same_as_password
-            )
-            isOk = false
+        when {
+            repeatPassword.isEmpty() -> {
+                _view.findViewById<TextInputLayout>(R.id.txtRepeatPasswordRegister).error =
+                    getString(R.string.password_cannot_be_null)
+                isOk = false
+            }
+            repeatPassword.length < 6 -> {
+                _view.findViewById<TextInputLayout>(R.id.txtRepeatPasswordRegister).error =
+                    getString(R.string.must_contain_at_least_6_characters)
+                isOk = false
+            }
+            repeatPassword != password -> {
+                _view.findViewById<TextInputLayout>(R.id.txtRepeatPasswordRegister).error = getString(
+                    R.string.must_be_the_same_as_password
+                )
+                isOk = false
+            }
         }
         return isOk
     }

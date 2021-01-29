@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_gamesListFragment_to_gameRegisterFragment"
             app:destination="@id/gameRegisterFragment" />
+        <action
+            android:id="@+id/action_gamesListFragment_to_gameDetailsFragment"
+            app:destination="@id/gameDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameRegisterFragment"
@@ -24,5 +27,19 @@
             app:destination="@id/gamesListFragment"
             app:popUpTo="@id/gamesListFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetailsFragment"
+        android:name="com.klossteles.desafiofirebase.games.view.GameDetailsFragment"
+        android:label="fragment_game_details"
+        tools:layout="@layout/fragment_game_details" >
+        <action
+            android:id="@+id/action_gameDetailsFragment_to_gamesListFragment"
+            app:destination="@id/gamesListFragment"
+            app:popUpTo="@id/gamesListFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_gameDetailsFragment_to_gameRegisterFragment"
+            app:destination="@id/gameRegisterFragment" />
     </fragment>
 </navigation>

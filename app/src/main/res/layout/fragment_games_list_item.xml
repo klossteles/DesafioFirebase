@@ -34,8 +34,7 @@
             android:textSize="@dimen/dimen_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@id/imgSeries"
+            app:layout_constraintTop_toBottomOf="@id/imgGame"
             tools:text="MORTAL KOMBAT X" />
 
         <TextView

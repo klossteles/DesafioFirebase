@@ -10,9 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.klossteles.desafiofirebase.R
 import com.klossteles.desafiofirebase.games.model.GameModel
+import com.klossteles.desafiofirebase.games.repository.GamesRepository
 import com.klossteles.desafiofirebase.games.viewModel.GameViewModel
 
 class GamesListItemFragment : Fragment() {
@@ -21,6 +23,7 @@ class GamesListItemFragment : Fragment() {
     private lateinit var _viewModel: GameViewModel
     private lateinit var _listAdapter: GameListAdapter
     private lateinit var _recyclerView: RecyclerView
+    private lateinit var _auth: FirebaseAuth
 
     private var _games = mutableListOf<GameModel>()
 
@@ -36,19 +39,21 @@ class GamesListItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _view = view
 
-        val list = _view.findViewById<RecyclerView>(R.id.rvGamesList)
         val manager = GridLayoutManager(_view.context, 2)
         _games = mutableListOf()
 
+        val user = _auth.currentUser ?: return
+
         _listAdapter = GameListAdapter(_games) {
-            val bundle = bundleOf(DESCRIPTION to it.description,
+            val bundle = bundleOf(
                 NAME to it.name,
+                DESCRIPTION to it.description,
                 CREATED_AT to it.createdAt,
             )
-//            _view.findNavController().navigate(R.id.action_comicListFragment_to_comicFragment, bundle)
+            _view.findNavController().navigate(R.id.action_gamesListFragment_to_gameDetailsFragment, bundle)
         }
         _recyclerView = _view.findViewById(R.id.rvGamesList)
-        list.apply {
+        _recyclerView.apply {
             setHasFixedSize(true)
             layoutManager = manager
             adapter = _listAdapter
@@ -56,13 +61,8 @@ class GamesListItemFragment : Fragment() {
 
         _viewModel = ViewModelProvider(
             this,
-            GameViewModel.GameViewModelFactory(FirebaseDatabase.getInstance())
+            GameViewModel.GameViewModelFactory(GamesRepository(FirebaseDatabase.getInstance("games").getReference(user.uid)))
         ).get(GameViewModel::class.java)
-
-//        _viewModel.getList().observe(viewLifecycleOwner, {
-//            _games.addAll(it)
-//            _listAdapter.notifyDataSetChanged()
-//        })
     }
 
     companion object {
